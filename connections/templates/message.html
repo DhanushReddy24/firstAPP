@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Message</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<style>
+    .sender{
+        margin-left: 100px;
+    }
+</style>
+<script src=""></script>
+<body>
+<div class="">
+    <h1>welcome to First App</h1>
+    <h1>Message</h1>
+</div>
+<p>user {{ user.first_name  }}</p>
+<p>opp_user {{ opp_user.first_name  }}</p>
+{% for message in Messages_data %}
+  {% if message.user == user %}
+    <p class="sender">{{ message }}</p>
+  {% else %}
+  <p class="receiver">{{ message }}</p>
+  {% endif %} 
+{% endfor %}
+<div class="d-flex justify-content-center form_container">
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn submit_btn" type="submit" value="submit">
+    </form>
+</div>
+<p>Users</p>
+{% for user in users_data %}
+<a href="{% url 'connections:message' pk=user.id %}" class="ml-2" style="font-weight: bold; text-decoration: none;">{{ user.first_name }}</a> 
+    <p></p>
+{% endfor %}
+</body>
+</html>

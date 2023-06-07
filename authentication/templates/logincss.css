@@ -1,0 +1,68 @@
+.container {
+    width: 500px;
+    margin: 15px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.form-container {
+    margin-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #291805;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.signup-line {
+    font-size: 18px;
+    color: #808080;
+  }
+  
+  .signup-line a {
+    color: #128807;
+    text-decoration: none;
+  }
+  
+  .signup-line a:hover {
+    text-decoration: underline;
+  }
+#result {
+    margin-top: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

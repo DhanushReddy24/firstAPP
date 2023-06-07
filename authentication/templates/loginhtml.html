@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Application UI</title>
+    <link rel="stylesheet" type="text/css" href="csscode.css">
+</head>
+<body>
+    <style>
+        body{
+            background-image: url("https://img.freepik.com/premium-photo/top-view-workspace-with-laptop-coffee-cup-notebooks-copy-space_67155-6516.jpg");
+            background-repeat:no-repeat;
+            background-size: cover;
+             }
+        body{
+      font-family: Lucida Handwriting;
+    }
+    
+    h1 {
+      font-size: 35px;
+      color: #808080;
+      text-align: left;
+      margin-top: 175px; 
+      background: linear-gradient(to right, #ff9933, #fff, #128807);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+    }
+    #password-label { font-size: 25px;
+  color: rgb(207, 192, 192);
+}
+#email-label {
+    font-size: 25px;
+  color: rgb(207, 192, 192);
+}
+#password {
+  color: grey;
+  background-color: lightgrey;
+}
+#email {
+  color: grey;
+  background-color: lightgrey;
+}
+#email::placeholder {
+    font-family: Lucida Handwriting;
+    color: #615555; /* Optionally, set the color */
+  }
+#password::placeholder {
+    font-family: Lucida Handwriting;
+    color: #615555; /* Optionally, set the color */
+  }
+    </style>
+    <div class="container">
+        <h1>Welcome to Hooks!Up</h1>
+        <div class="form-container">
+            <form method="Post" action="" id="myForm" >
+              {% csrf_token %}
+                <label for="email" id="email-label">email:</label>
+                <input type="text" id="email" name="email" placeholder="Enter your login mail" required>                
+                <label for="password" id="password-label">password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password"  required> 
+                <button type="submit">Submit</button>
+            </form>
+        <p class="signup-line">Not a member? <a href="{% url 'signup' %}">Sign up</a></p>
+        </div>
+        <div id="result"></div>
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}    
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

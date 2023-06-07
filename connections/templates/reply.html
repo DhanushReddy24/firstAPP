@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Reply</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<style>
+</style>
+<script src=""></script>
+<body>
+<div class="">
+    <h1>welcome to First App</h1>
+    <h1>Reply</h1>
+</div>
+<div class="d-flex justify-content-center form_container">
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn submit_btn" type="submit" value="submit">
+    </form>
+</div>
+</body>
+</html>
