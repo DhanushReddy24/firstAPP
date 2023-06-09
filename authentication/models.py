@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import PermissionsMixin, AbstractBaseUser, BaseUserManager
-
+#this comment is made by sidhu
 class UserManager(BaseUserManager):
     def create_user(self,email,password=None,**extra_fields):
         if not email:
@@ -37,3 +37,4 @@ class User(AbstractBaseUser, PermissionsMixin):
     
     def __str__(self):
         return self.email
+    
