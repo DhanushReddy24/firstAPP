@@ -27,7 +27,7 @@ def signin(request):
         else:
             messages.info(request,'Username or password is incorrect')
 
-    return render(request,'login.html')
+    return render(request,'index.html')
 
 def signup(request):
     form = NewUserForm()
@@ -40,7 +40,7 @@ def signup(request):
             form.save()
     print('Hi2')      
     context={'form':form}
-    return render(request,'signup.html',context)
+    return render(request,'index.html',context)
 
 def signout(request):
     logout(request)
