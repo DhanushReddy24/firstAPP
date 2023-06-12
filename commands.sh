@@ -8,3 +8,9 @@ cd /Users/dhanush/Desktop/firstAPP/firstappapi/firstappui
 
 pip freeze > requirements. txt 
 pip install -r requirements.txt
+
+git status
+git add .
+git commit -m 'commit'
+git push -u origin main
+git pull origin main
