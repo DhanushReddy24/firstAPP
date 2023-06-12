@@ -3,3 +3,4 @@ https://www.section.io/engineering-education/react-and-django-rest-framework/
 https://testdriven.io/blog/drf-views-part-1/
 https://www.geeksforgeeks.org/function-based-views-django-rest-framework/
 https://www.nintyzeros.com/2020/07/how-to-build-django-restapi-function.html
+https://www.digitalocean.com/community/tutorials/how-to-add-login-authentication-to-react-applications
