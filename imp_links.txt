@@ -1,3 +1,5 @@
 https://andela.com/insights/how-to-use-django-rest-framework-apiview-to-create-a-django-api-part-1/
 https://www.section.io/engineering-education/react-and-django-rest-framework/
 https://testdriven.io/blog/drf-views-part-1/
+https://www.geeksforgeeks.org/function-based-views-django-rest-framework/
+https://www.nintyzeros.com/2020/07/how-to-build-django-restapi-function.html
