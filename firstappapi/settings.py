@@ -27,21 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CORS_ORIGIN_ALLOW_ALL = True
-
-CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
-
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
-
-CSRF_COOKIE_SAMESITE = 'Lax'
-SESSION_COOKIE_SAMESITE = 'Lax'
-CSRF_COOKIE_NAME = 'csrftoken'
-
-
-CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']
-CORS_ALLOW_CREDENTIALS = True
-
-
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+]
 
 # Application definition
 AUTH_USER_MODEL = 'authentication.User'

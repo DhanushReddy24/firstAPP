@@ -2,11 +2,17 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .forms import TweetForm,ReplyForm,MessageForm
+from .serializers import TweetSerializer
 from .models import Tweet,TweetReply,Message
 from authentication.models import User
+from rest_framework.response import Response
+from rest_framework.decorators import api_view, renderer_classes
+from rest_framework.renderers import JSONRenderer, TemplateHTMLRenderer
+
+
  
 # Create your views here.
-
+'''
 @login_required(login_url='login')
 def tweet(request):
     user = request.user
@@ -25,6 +31,14 @@ def tweet(request):
     form = TweetForm(user=user)
     context={'form':form,'user':user,'Tweets_data':Tweets_data,'TweetReplys_data':TweetReplys_data}
     return render(request,'tweet.html',context)
+'''
+@api_view(['GET'])
+#@renderer_classes((TemplateHTMLRenderer, JSONRenderer))
+def tweet(request):
+    Tweets_data = Tweet.objects.all()
+    Tweets_data = TweetSerializer(Tweets_data, many=True)
+    return Response(Tweets_data.data,template_name='tweet.html')
+
 
 def get_users(user,opp_user):
     exclude_ids = [user.id,opp_user.id]

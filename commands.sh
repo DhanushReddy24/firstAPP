@@ -14,3 +14,12 @@ git add .
 git commit -m 'commit'
 git push -u origin main
 git pull origin main
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+
+lsof -i :3000
+kill 12345
+kill -9 12345
+
