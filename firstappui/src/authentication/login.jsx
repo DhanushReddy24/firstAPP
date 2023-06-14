@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-import Cookies from 'js-cookie';
+import axios from 'axios';
 
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const csrfToken = Cookies.get('csrftoken');
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -23,20 +22,13 @@ function Login() {
     console.log('Username:', username);
     console.log('Password:', password);
 
-    fetch("http://127.0.0.1:8000/login",{
-      method:"POST",
-      credentials: 'include',
-      headers:{
-        'Accept':'application/json',
-        'Content-Type': 'application/json',
-        'X-CSRFToken': csrfToken,
-      },
-      body: JSON.stringify({
-        'data_options': {
-          'email': username,
-          'password': password,
-        }
-      })
+    axios.post('http://127.0.0.1:8000/api/token/', {
+      'email': username,
+      'password': password
+
+    }).then(function (response) {
+      localStorage.setItem('authTokens', JSON.stringify(response.data))
+      console.log(response.data);
     })
 
     // Reset form fields
@@ -44,7 +36,7 @@ function Login() {
     //setPassword('');
 
     let path = '/tweet/'; 
-    //navigate(path);
+    navigate(path);
   };
 
   return (

@@ -28,7 +28,9 @@ urlpatterns = [
     path('',include('authentication.urls')),
     #path('message/',include('connections.urls')),
     path('connections/',include('connections.urls', namespace='connections')),
+    path('api/',include('authentication.urls')),
 ]
+
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

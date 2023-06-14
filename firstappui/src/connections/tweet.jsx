@@ -4,22 +4,35 @@ import axios from 'axios';
 function Tweet() {
 
   const [TweetData, setTweetData] = useState([]);
+  let [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
+  //setAuthTokens(localStorage.getItem('authTokens'))
 
-  useEffect(() => {
-    axios.get('http://127.0.0.1:8000/connections/tweet/')
-      .then(response => {
-      
-    if(response.status===200){
-      setTweetData(response.data)
+  let getTweets = async() => {
+    console.log(authTokens.access)
+    let response =await axios.get('http://127.0.0.1:8000/connections/tweet/',{
+      'headers': { 
+        'Content-Type':'application/json',
+        'Authorization': 'JWT ' +String(authTokens.access) 
+      }
+    })
+    let data = await response
+    //{console.log(response)}
+    if(data.status===200){
+      setTweetData(data.data)
       
       //console.log(response.data)
     }
   }
-      )}, []);
+  useEffect(()=> {
+    getTweets()
+  }, [])
 
-    return (
+  //getTweets()
+
+  return (
     <div>
       <h1>Tweets Page</h1>
+      {console.log(TweetData)}
 
       {TweetData?.map(row => {
         {console.log(TweetData, "data", typeof TweetData)}
@@ -35,9 +48,8 @@ function Tweet() {
         )
       }
       )}
-
     </div>
-    );
+  );
   }
   
   export default Tweet;

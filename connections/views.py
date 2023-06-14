@@ -6,8 +6,10 @@ from .serializers import TweetSerializer
 from .models import Tweet,TweetReply,Message
 from authentication.models import User
 from rest_framework.response import Response
-from rest_framework.decorators import api_view, renderer_classes
+from rest_framework.decorators import api_view, renderer_classes,permission_classes
 from rest_framework.renderers import JSONRenderer, TemplateHTMLRenderer
+from rest_framework.permissions import IsAuthenticated
+
 
 
  
@@ -33,6 +35,7 @@ def tweet(request):
     return render(request,'tweet.html',context)
 '''
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 #@renderer_classes((TemplateHTMLRenderer, JSONRenderer))
 def tweet(request):
     Tweets_data = Tweet.objects.all()

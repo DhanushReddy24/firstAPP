@@ -8,3 +8,4 @@ https://github.com/CleverProgrammers/twitter-clone/blob/master/src/Post.js
 https://www.geeksforgeeks.org/how-to-build-a-react-app-with-user-authentication/
 https://inmagik.com/en/blog/django-rest-and-react
 https://github.com/RodrigoBLima/django-react-login
+https://github.com/divanov11/refresh-token-interval
