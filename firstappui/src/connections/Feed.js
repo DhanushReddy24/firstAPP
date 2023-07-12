@@ -6,14 +6,31 @@ import db from "./firebase";
 import FlipMove from "react-flip-move";
 
 function Feed() {
-  const [posts, setPosts] = useState([]);
+  const [TweetData, setTweetData] = useState([]);
+  let [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
+  //setAuthTokens(localStorage.getItem('authTokens'))
 
-  useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) =>
-      setPosts(snapshot.docs.map((doc) => doc.data()))
-    );
+  let getTweets = async() => {
+    console.log(authTokens.access)
+    let response =await axios.get('http://127.0.0.1:8000/connections/tweet/',{
+      'headers': { 
+        'Content-Type':'application/json',
+        'Authorization': 'JWT ' +String(authTokens.access) 
+      }
+    })
+    let data = await response
+    //{console.log(response)}
+    if(data.status===200){
+      setTweetData(data.data)
+      
+      //console.log(response.data)
+    }
+  }
+  useEffect(()=> {
+    getTweets()
   }, []);
 
+  
   return (
     <div className="feed">
       <div className="feed__header">
@@ -23,15 +40,12 @@ function Feed() {
       <TweetBox />
 
       <FlipMove>
-        {posts.map((post) => (
+        {TweetData.map((tweet) => (
           <Post
-            key={post.text}
-            displayName={post.displayName}
-            username={post.username}
-            verified={post.verified}
-            text={post.text}
-            avatar={post.avatar}
-            image={post.image}
+            key={tweet.id}
+            username={tweet.user}
+            tweet={tweet.tweet}
+            time={tweet.created_at}
           />
         ))}
       </FlipMove>
