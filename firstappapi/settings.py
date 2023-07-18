@@ -104,11 +104,11 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'railway',
+        'NAME': 'postgres',
         'USER' : 'postgres',
-        'PASSWORD' : 'V9p9R24e0a3hbHowUIC0',
-        'HOST' : 'containers-us-west-36.railway.app',
-        'PORT' : '7970'
+        'PASSWORD' : 'firstAPP@2023',
+        'HOST' : 'db.qmrccyxpiylzlgwfsbjp.supabase.co',
+        'PORT' : '5432'
 
     }
 }

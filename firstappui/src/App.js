@@ -15,6 +15,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Register />} />
         <Route path='/tweet' element={<Tweet />} />
+        <Route path='/tweet-new' element={<><Sidebar /><Feed /><Widgets /></>} />
     </Routes>
     </div>
   );
