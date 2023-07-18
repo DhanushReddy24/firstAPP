@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import TweetBox from "./TweetBox";
 import Post from "./Post";
 import "./Feed.css";
-import db from "./firebase";
 import FlipMove from "react-flip-move";
+import axios from 'axios';
+
 
 function Feed() {
   const [TweetData, setTweetData] = useState([]);
@@ -36,8 +36,6 @@ function Feed() {
       <div className="feed__header">
         <h2>Home</h2>
       </div>
-
-      <TweetBox />
 
       <FlipMove>
         {TweetData.map((tweet) => (

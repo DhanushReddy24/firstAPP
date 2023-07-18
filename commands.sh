@@ -2,7 +2,7 @@ source /Users/dhanush/Desktop/firstAPP/firstAPP_env/bin/activate
 nvm use 20.2.0
 npm run build
 npm start
-npm install
+npm install <name>
 
 
 cd /Users/dhanush/Desktop/firstAPP/firstappapi

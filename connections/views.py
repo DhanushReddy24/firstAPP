@@ -35,7 +35,7 @@ def tweet(request):
     return render(request,'tweet.html',context)
 '''
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+#@permission_classes([IsAuthenticated])
 #@renderer_classes((TemplateHTMLRenderer, JSONRenderer))
 def tweet(request):
     Tweets_data = Tweet.objects.all()

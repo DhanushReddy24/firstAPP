@@ -9,3 +9,7 @@ https://www.geeksforgeeks.org/how-to-build-a-react-app-with-user-authentication/
 https://inmagik.com/en/blog/django-rest-and-react
 https://github.com/RodrigoBLima/django-react-login
 https://github.com/divanov11/refresh-token-interval
+
+https://vercel.com/dhanushreddy24/firstapp
+https://supabase.com/dashboard/projects
+https://blog.logrocket.com/deploy-react-app-for-free-using-vercel/

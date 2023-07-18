@@ -5,6 +5,10 @@ import Login from './authentication/login.jsx'
 import Register from './authentication/signup.jsx'
 import Welcome from './authentication/welcome.jsx'
 import Tweet from './connections/tweet.jsx'
+import Sidebar from "./connections/Sidebar";
+import Feed from "./connections/Feed";
+import Widgets from "./connections/Widgets";
+
 
 
 function App() {

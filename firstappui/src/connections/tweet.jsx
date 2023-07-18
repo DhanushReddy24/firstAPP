@@ -5,7 +5,7 @@ import Logout from '../authentication/logout';
 function Tweet() {
 
   const [TweetData, setTweetData] = useState([]);
-  let [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
+  //let [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
   //setAuthTokens(localStorage.getItem('authTokens'))
   
   const handleLogout = (event) => {
@@ -13,11 +13,14 @@ function Tweet() {
   };
 
   let getTweets = async() => {
-    console.log(authTokens.access)
+    //console.log(authTokens.access)
     let response =await axios.get('http://127.0.0.1:8000/connections/tweet/',{
       'headers': { 
         'Content-Type':'application/json',
-        'Authorization': 'JWT ' +String(authTokens.access) 
+        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Credentials' : 'true',
+        'Access-Control-Allow-Methods':'PUT, POST, GET, DELETE, PATCH, OPTIONS',      
+        //'Authorization': 'JWT ' +String(authTokens.access) 
       }
     })
     let data = await response
