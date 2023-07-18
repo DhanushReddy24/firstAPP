@@ -6,6 +6,13 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from connections.models import Tweet,TweetReply
+from .serializers import RegisterSerializer
+from rest_framework.decorators import api_view, renderer_classes,permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+
+
+
  
 
 
@@ -29,18 +36,17 @@ def signin(request):
 
     return render(request,'index.html')
 
+
+@api_view(['POST'])
 def signup(request):
-    form = NewUserForm()
     if request.method == "POST":
-        form = NewUserForm(request.POST)
-        print(form.is_valid())
-        print(form.errors)
-        if form.is_valid():
-            print('save')
-            form.save()
-    print('Hi2')      
-    context={'form':form}
-    return render(request,'index.html',context)
+        serializer = RegisterSerializer(data = request.POST)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        user.set_password(serializer.validated_data.get('password'))
+        user.save()
+
+    return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 def signout(request):
     logout(request)

@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
+CORS_URLS_REGEX = r'^/auth/.*$'
 
 # Application definition
 AUTH_USER_MODEL = 'authentication.User'
@@ -126,12 +127,18 @@ REST_FRAMEWORK = {
 
 DJOSER = {
     'LOGIN_FIELD':'email',
-    'PASSWORD_RESET_CONFIRM_URL': '#/password/reset/confirm/{uid}/{token}',
-    'ACTIVATION_URL': '#/activate/{uid}/{token}',
-    'SEND_ACTIVATION_EMAIL': True,
-    'SEND_CONFIRMATION_EMAIL': True,
-    'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
-    'SERIALIZERS': {},
+    'USER_CREATE_PASSWORD_RETYPE': True,
+    #'PASSWORD_RESET_CONFIRM_URL': '#/password/reset/confirm/{uid}/{token}',
+    #'ACTIVATION_URL': '#/activate/{uid}/{token}',
+    #'SEND_ACTIVATION_EMAIL': True,
+    #'SEND_CONFIRMATION_EMAIL': True,
+    #'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
+    'SERIALIZERS': {
+        'user_create': 'authentication.serializers.UserCreateSerializer',
+        'user': 'authentication.serializers.UserCreateSerializer',
+        'current_user': 'authentication.serializers.UserCreateSerializer',
+        'user_delete': 'djoser.serializers.UserDeleteSerializer',
+    },
 }
 
 SIMPLE_JWT = {

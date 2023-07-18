@@ -9,3 +9,19 @@ https://www.geeksforgeeks.org/how-to-build-a-react-app-with-user-authentication/
 https://inmagik.com/en/blog/django-rest-and-react
 https://github.com/RodrigoBLima/django-react-login
 https://github.com/divanov11/refresh-token-interval
+
+
+{
+"first_name":"Rupa", 
+"last_name" :"Madhuri", 
+"email" :"rupamadhuri1999@gmail.com", 
+"password":"Madhuri@1999", 
+"re_password":"Madhuri@1999"
+}
+
+{
+"first_name" : "Rupa", 
+"last_name" : "Madhuri", 
+"email"  : "rupamadhuri1999@gmail.com", 
+"password" : "Madhuri@1999"
+}

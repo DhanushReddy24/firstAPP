@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Logout from '../authentication/logout';
 
 function Tweet() {
 
   const [TweetData, setTweetData] = useState([]);
   let [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
   //setAuthTokens(localStorage.getItem('authTokens'))
+  
+  const handleLogout = (event) => {
+    localStorage.getItem('authTokens') ? localStorage.removeItem('authTokens') : console.log('No User to logout')
+  };
 
   let getTweets = async() => {
     console.log(authTokens.access)
@@ -45,9 +50,11 @@ function Tweet() {
               <td>{row.created_at} hrs</td>
             </tr>
           </li>
+          
         )
       }
       )}
+      <Logout/>
     </div>
   );
   }

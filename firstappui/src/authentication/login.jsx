@@ -28,6 +28,7 @@ function Login() {
 
     }).then(function (response) {
       localStorage.setItem('authTokens', JSON.stringify(response.data))
+      console.log('access token')
       console.log(response.data);
     })
 
