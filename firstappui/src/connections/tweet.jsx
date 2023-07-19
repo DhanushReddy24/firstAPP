@@ -18,19 +18,20 @@ function Tweet() {
       'headers': { 
         'Content-Type':'application/json',
         'Access-Control-Allow-Origin' : '*',
-        'Access-Control-Allow-Credentials' : 'true',
+        'Access-Control-Allow-Credentials' : 'false',
         'Access-Control-Allow-Methods':'PUT, POST, GET, DELETE, PATCH, OPTIONS',      
-        //'Authorization': 'JWT ' +String(authTokens.access) 
       }
     })
     let data = await response
-    //{console.log(response)}
+    {console.log('response')}
+    {console.log(response)}
     if(data.status===200){
       setTweetData(data.data)
       
       //console.log(response.data)
     }
   }
+
   useEffect(()=> {
     getTweets()
   }, [])
@@ -41,7 +42,6 @@ function Tweet() {
     <div>
       <h1>Tweets Page</h1>
       {console.log(TweetData)}
-
       {TweetData?.map(row => {
         {console.log(TweetData, "data", typeof TweetData)}
         return (

@@ -29,8 +29,27 @@ ALLOWED_HOSTS = ['*']
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
+    'http://127.0.0.1:3000',
 ]
-CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOWED_ORIGIN = [
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+# Allow requests from http://localhost:3000 (your React frontend)
+CORS_ALLOWED_ORIGIN = 'http://localhost:3000'
+
+# Allow the following methods (e.g., GET, POST, etc.)
+CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
+
+# Allow specific headers (if needed)
+CORS_ALLOW_HEADERS = ['Authorization', 'Content-Type']
+
+# Allow credentials to be sent (if needed)
+CORS_ALLOW_CREDENTIALS = True
 
 CORS_URLS_REGEX = r'^/auth/.*$'
 

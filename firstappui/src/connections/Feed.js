@@ -7,15 +7,15 @@ import axios from 'axios';
 
 function Feed() {
   const [TweetData, setTweetData] = useState([]);
-  let [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
+  //let [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
   //setAuthTokens(localStorage.getItem('authTokens'))
 
   let getTweets = async() => {
-    console.log(authTokens.access)
+    //console.log(authTokens.access)
     let response =await axios.get('http://127.0.0.1:8000/connections/tweet/',{
       'headers': { 
         'Content-Type':'application/json',
-        'Authorization': 'JWT ' +String(authTokens.access) 
+        //'Authorization': 'JWT ' +String(authTokens.access) 
       }
     })
     let data = await response

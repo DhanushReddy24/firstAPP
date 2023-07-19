@@ -21,6 +21,7 @@ git clone <http url>
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
+python manage.py runserver 0:8000
 
 lsof -i :3000
 kill 12345
